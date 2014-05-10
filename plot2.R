@@ -1,0 +1,6 @@
+data <- read.table("household_power_consumption.txt", header = TRUE, sep  =";", skip = 66636, nrows = 2880)
+names(data) <- c("Date", "Time", "GAP", "GRP", "Voltage", "GI", "SM1", "SM2", "SM3")
+plot(data$GAP, main = "", xlab = "", xaxt = "n", ylab = "Global Active Power (kilowatts)", type = 'l')
+axis(1, at=c(0, 1441, 2880), labels=c("Tue","Fri", "Sat"))
+dev.copy(png, file = "plot2.png")
+dev.off()
